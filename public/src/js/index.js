@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   // Objetivo:
   // Enviar um texto de um formulário para uma API do n8n e exibir o resultado o código html, css e colocar a animação no fundo da tela do site.
 
@@ -96,4 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
   //    - Mostrar o HTML e CSS gerado em uma área de preview.
   //    - Inserir o CSS retornado dinamicamente na página para aplicar o background.
   // 7. Remover o indicador de carregamento após o recebimento da resposta.
-});
+})();
