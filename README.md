@@ -1,5 +1,5 @@
 # Fundo Mágico — Gerador de Fundos alimentado por IA
-Deploy: https://leo-gouvea.github.io/fundo-magico/
+Deploy: https://magical-background-ai.vercel.app
 
 ## 🧠 Sobre o Projeto
 
