@@ -347,6 +347,132 @@
   transform: translateY(0);
 }
 
+.btn-magic:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Ações (gerar + desfazer) */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.actions .btn-magic {
+  flex: 1 1 220px;
+}
+
+.btn-ghost {
+  padding: 14px 20px;
+  background: color-mix(in oklch, var(--color-secondary) 70%, transparent);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: color-mix(in oklch, var(--color-secondary) 90%, var(--color-primary) 10%);
+  border-color: color-mix(in oklch, var(--color-primary) 50%, var(--color-border));
+  transform: translateY(-1px);
+}
+
+/* Cabeçalho de cada bloco de código com botão copiar */
+.code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.code-head .code-title {
+  margin-bottom: 0;
+}
+
+.btn-copy {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-foreground);
+  background: color-mix(in oklch, var(--color-primary) 20%, transparent);
+  border: 1px solid color-mix(in oklch, var(--color-primary) 40%, var(--color-border));
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-copy:hover {
+  background: color-mix(in oklch, var(--color-primary) 40%, transparent);
+  transform: translateY(-1px);
+}
+
+.btn-copy.copied {
+  background: color-mix(in oklch, oklch(0.7 0.2 150) 50%, transparent);
+  border-color: oklch(0.75 0.2 150);
+  color: oklch(0.98 0 0);
+}
+
+/* Toast "Feito!" */
+.done-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: color-mix(in oklch, var(--color-card) 85%, transparent);
+  border: 1px solid color-mix(in oklch, oklch(0.7 0.2 150) 50%, var(--color-border));
+  border-radius: 999px;
+  color: var(--color-foreground);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    0 12px 40px oklch(0 0 0 / 0.35),
+    0 0 32px color-mix(in oklch, oklch(0.7 0.2 150) 40%, transparent);
+  z-index: 1000;
+  animation: done-pop 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.done-check {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, oklch(0.75 0.2 150), oklch(0.65 0.22 165));
+  color: oklch(0.14 0.03 260);
+  font-weight: 900;
+  font-size: 0.85rem;
+  animation: check-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes done-pop {
+  0% { opacity: 0; transform: translate(-50%, 20px) scale(0.9); }
+  15% { opacity: 1; transform: translate(-50%, 0) scale(1.05); }
+  25% { transform: translate(-50%, 0) scale(1); }
+  85% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, 10px) scale(0.95); }
+}
+
+@keyframes check-pop {
+  0% { transform: scale(0) rotate(-90deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+
 /* Preview host — invisible wrapper. The generated background is applied
    fullscreen via #preview-container (position:fixed, z-index:-1) injected
    by the JS, so this element itself must NOT render any card/box. */
@@ -436,35 +562,63 @@
 /* Responsive */
 @media (max-width: 768px) {
   body {
-    padding: 24px 16px;
+    padding: 20px 14px;
+  }
+
+  .header {
+    margin-bottom: 32px;
   }
 
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .header .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .card {
-    padding: 24px;
+    padding: 20px;
+    border-radius: 20px;
   }
 
   .card-header {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .code-grid {
     flex-direction: column;
+    gap: 16px;
   }
 
   .code-card {
     width: 100%;
   }
 
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions .btn-magic,
+  .btn-ghost {
+    width: 100%;
+  }
+
   .btn-magic {
-    font-size: 1rem;
-    padding: 16px 24px;
+    font-size: 0.95rem;
+    padding: 15px 20px;
+  }
+
+  .code-block {
+    font-size: 12.5px;
+    max-height: 260px;
+  }
+
+  .done-toast {
+    bottom: 20px;
+    font-size: 0.85rem;
+    padding: 12px 18px;
   }
 }
+
