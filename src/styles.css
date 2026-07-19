@@ -347,27 +347,24 @@
   transform: translateY(0);
 }
 
-/* Preview card */
+/* Preview host — invisible wrapper. The generated background is applied
+   fullscreen via #preview-container (position:fixed, z-index:-1) injected
+   by the JS, so this element itself must NOT render any card/box. */
 .preview-card {
   display: none;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  background: color-mix(in oklch, var(--color-card) 50%, transparent);
-  backdrop-filter: blur(20px) saturate(160%);
-  min-height: 160px;
-  margin-bottom: 32px;
-  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
+  margin: 0;
+  min-height: 0;
 }
 
 #preview-container {
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-muted-foreground);
-  font-size: 0.875rem;
+  /* base styles overridden by dynamic-style injected by index.js */
 }
+
 
 /* Code output */
 .code-grid {
