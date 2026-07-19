@@ -1,4 +1,67 @@
+# Magical Background — AI-Powered Background Generator
+*🌐 Idioma em Português abaixo / Portuguese version below*
+
+Deploy: https://magical-background-ai.vercel.app
+
+## 🧠 About the Project
+
+**Magical Background** is a web application that generates **HTML and CSS backgrounds** from natural language descriptions using **generative Artificial Intelligence**. 
+The project integrates a **front-end interface** with an **n8n automation workflow**, which communicates with **Groq** to dynamically generate clean, reusable front-end code.
+
+---
+
+## ✨ Features
+
+* Text-to-background generation
+* AI-generated **HTML + CSS** code
+* **REST API** integration via n8n webhook
+* Simple and responsive user interface
+* Clean and reusable generated code
+
+---
+
+## 🛠️ Technologies Used
+
+* **HTML5**
+* **CSS3**
+* **JavaScript (ES6+)**
+* **REST API**
+* **n8n (workflow automation)**
+* **Groq (generative AI)**
+
+---
+
+## 🔄 How It Works
+
+1. The user describes their desired background.
+2. The front-end sends the request to an **n8n webhook**.
+3. n8n processes the request and calls **Groq**.
+4. The AI generates the HTML and CSS code.
+5. The generated code is returned and rendered on the interface.
+
+---
+
+## 🎯 Objectives
+
+This project was built to practice:
+
+* Front-end and API integration
+* Process automation
+* Applied generative AI for web development
+* Clean and reusable code generation
+
+---
+
+## 👤 Author
+
+**Leonardo José Alves Gouvea**
+
+<br>
+<hr>
+<br>
+
 # Fundo Mágico — Gerador de Fundos alimentado por IA
+
 Deploy: https://magical-background-ai.vercel.app
 
 ## 🧠 Sobre o Projeto
