@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependências e Outputs
 node_modules
 dist
 dist-ssr
@@ -14,14 +15,18 @@ dist-ssr
 .vinxi
 .tanstack/**
 .nitro
-*.local
+
+# Variáveis de Ambiente e Segredos (Atualizado)
+.env
+.env.*
+!.env.example
+.dev.vars
 
 # Wrangler / Cloudflare
 .wrangler/
-.dev.vars
 
-# Editor directories and files
-.vscode/*
+# Diretórios de Editores e Sistema (Atualizado)
+.vscode/
 !.vscode/extensions.json
 .idea
 .DS_Store
