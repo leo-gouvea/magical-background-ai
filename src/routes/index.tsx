@@ -62,7 +62,7 @@ function Index() {
       <header className="header">
         <div className="badge-n8n">
           <span className="badge-dot" />
-          powered by N8N
+          powered by Groq AI
         </div>
         <h1>Fundo Mágico</h1>
         <p className="subtitle">

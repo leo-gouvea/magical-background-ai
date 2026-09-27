@@ -17,14 +17,11 @@
     showLoading(true);
 
     try {
-      const answer = await fetch(
-        "https://n8n-production-3db5.up.railway.app/webhook/fundo-magico",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ desc }),
-        },
-      );
+      const answer = await fetch("/api/gerar-fundo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ desc }),
+      });
 
       const data = await answer.json();
 
