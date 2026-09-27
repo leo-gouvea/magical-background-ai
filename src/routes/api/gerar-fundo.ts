@@ -5,7 +5,7 @@ import type {} from "@tanstack/react-start";
 // recebe { desc }, chama o Groq, devolve { html, css } no mesmo formato de sempre.
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+const GROQ_MODEL = "openai/gpt-oss-120b";
 
 const SYSTEM_PROMPT = `Você é um gerador de fundos (backgrounds) em HTML e CSS.
 
